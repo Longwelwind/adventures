@@ -1,0 +1,35 @@
+{
+  "name": "twine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "@types/jimp": "^0.2.1",
+    "@types/lodash": "^4.14.70",
+    "@types/marked": "0.0.28",
+    "@types/react": "^15.0.38",
+    "@types/react-dom": "^15.5.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "jimp": "^0.2.28",
+    "lodash": "^4.17.4",
+    "marked": "^0.3.6",
+    "mobx": "^3.2.1",
+    "mobx-react": "^4.2.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-transition-group": "^2.2.0",
+    "ts-loader": "^2.3.1",
+    "typescript": "^2.4.2",
+    "uglify-js": "^3.0.25",
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "webpack": "^3.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack -p"
+  },
+  "author": "",
+  "license": "ISC"
+}
