@@ -3,16 +3,12 @@ layout: default
 title: "Jekyll Docs Template"
 ---
 
-### Get Started
+### What is Adventure
 
-Start by [creating a new post](http://jekyllrb.com/docs/posts/) one of the categories listed in `_config.yml`. It will appear in the navigation on the left once recompiled. Or use the supplied script to make creating pages easier:
+**Adventures** is a custom story format for [Twine 2](https://twinery.org/) that allows writers to add RPG elements such as health, items, golds and more to their story.
 
-```bash
-ruby bin/jekyll-page "Some Page Title" ref
-```
+### Requirements
 
-#### Don't Forget
+**Adventures** is based on [klembot's Snowman 2](https://bitbucket.org/klembot/snowman-2) and uses Javascript to interact with the state of the game.
 
-- Add your own content to this page (i.e. `index.md`) and change the `title`
-- Change `title` and `subtitle` defined in `config.yml` for your site
-- Set the `baseurl` in `_config.yml` for your repo if deploying to GitHub pages
+It is recommended to know a bit of Javascript, but it is not mandatory. Most function calls are easily understandable and can be copy/pasted from the docs.
