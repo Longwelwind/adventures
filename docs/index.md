@@ -7,7 +7,7 @@ title: "Home"
 
 **Adventures** is a custom story format for [Twine 2](https://twinery.org/) that allows writers to add RPG elements such as health, items, golds and more to their story.
 
-![Demo of Adventures]({{ site.url }}/assets/home-demo.gif)
+![Demo of Adventures]({{ site.baseurl }}/assets/home-demo.gif)
 
 ### Requirements
 
