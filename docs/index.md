@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Jekyll Docs Template"
+title: "Home"
 ---
 
 ### What is Adventure
@@ -11,18 +11,12 @@ title: "Jekyll Docs Template"
 
 ### Requirements
 
-**Adventures** is based on [klembot's Snowman 2](https://bitbucket.org/klembot/snowman-2). The content of the passages of processed by [lodash's _.template function](https://lodash.com/docs/4.17.4#template), which allows you to execute Javascript scripts inside the `<% %>` tags, and print dynamic valeus using the `<%= %>` tags.
-
-For example, the passage:
+**Adventures** is based on [klembot's Snowman 2](https://bitbucket.org/klembot/snowman-2) and works by calling Javascript functions inside `<% %>` tags to change the state of the character and the story. For example, to add a sword to the inventory of the player, you'd write in one of your passages:
 
 ```
-<%
-var name = "Arthas";
-%>
+In the middle of the hall, amidst the corpses of the goblins, you find a sword. You're definitly not the first one to wield it, but it should suffice should a monster bar your way.
 
-The old pirate greeted you: "Ahoy, you must be <%= name %>" !
+<% character.inventory.addItem("sword"); %>
 ```
-
-Would become, once in the story: `The old pirate greeted you: "Ahoy, you must be Arthas" !`
 
 It is recommended to know a bit of Javascript, but it is not mandatory. Most function calls are easily understandable and can be copy/pasted from the docs.
