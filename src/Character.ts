@@ -33,7 +33,7 @@ export default class Character {
 			throw new Error(`heal: "amount" must be positive`);
 		}
 
-		this.health = Math.max(this.health + amount, 0);
+		this.health = Math.min(this.health + amount, this.maxHealth);
 	}
 
 	addGold(gold: number) {
