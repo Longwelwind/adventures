@@ -71,17 +71,20 @@ class Interface extends React.Component<InterfaceProps, null> {
 										</h2>
 									</div>
 								</div>
-								<div className="row">
-									<div className="elem" style={{flexGrow: 1}}>
-										<div className="progress-bar">
-											<div
-												className="fill red"
-												style={{width: 100 * this.character.health / this.character.maxHealth + "%"}}
-											>
+								{this.story.config.displayHealth && (
+									<div className="row">
+										<div className="elem" style={{flexGrow: 1}}>
+											<div className="progress-bar">
+												<div
+													className="fill red"
+													style={{width: 100 * this.character.health / this.character.maxHealth + "%"}}
+												>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
+								)}
+								{/*
 								<div className="row">
 									<div className="elem">
 										<div>
@@ -92,7 +95,7 @@ class Interface extends React.Component<InterfaceProps, null> {
 											))}
 										</div>
 									</div>
-								</div>
+								</div>*/}
 								<hr />
 								<div className="row">
 									<div className="elem">
@@ -108,21 +111,23 @@ class Interface extends React.Component<InterfaceProps, null> {
 										</div>
 									</div>
 								</div>
-								<div className="row">
-									<div className="elem" style={{flexGrow: 1}}>
-										<div
-											className="row"
-											style={{justifyContent: "flex-end", alignItems: "center"}}
-										>
-											<div className="elem">
-												{this.character.gold}
-											</div>
-											<div>
-												<div className="item gold medium-coin"></div>
+								{this.story.config.displayGold && (
+									<div className="row">
+										<div className="elem" style={{flexGrow: 1}}>
+											<div
+												className="row"
+												style={{justifyContent: "flex-end", alignItems: "center"}}
+											>
+												<div className="elem">
+													{this.character.gold}
+												</div>
+												<div>
+													<div className="item gold medium-coin"></div>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
+								)}
 							</div>
 						</div>
 					</div>
@@ -212,35 +217,37 @@ class Interface extends React.Component<InterfaceProps, null> {
 								</div>
 							</div>
 						)}
-						{this.story.choices.map((c, i) => (
-							<div className="row" key={i}>
-								<div className="elem" style={{flexGrow: 1}}>
-									<CSSTransition
-										classNames="fade"
-										timeout={{
-											enter: this.CHOICE_FADE_IN_DELAY + this.CHOICE_FADE_IN_DELAY_PER * (this.story.choices.length + 1),
-											exit: this.CHOICE_CHOSEN_FADE_OUT_DELAY + this.CHOICE_FADE_IN_DURATION
-										}}
-										appear={true}
-										in={this.choiceChosen == null}
-									>
-										<button
-											className={"button " + c.getTheme(this.story.config.buttonTheme)}
-											dangerouslySetInnerHTML={{__html: c.text}}
-											onClick={() => this.onChoice(c)}
-											style={{
-												width: "100%",
-												transitionDelay: this.choiceChosen == null
-													? (this.CHOICE_FADE_IN_DELAY + ((i + 1) * this.CHOICE_FADE_IN_DELAY_PER)) + "ms"
-													: this.choiceChosen == c ? this.CHOICE_CHOSEN_FADE_OUT_DELAY + "ms" : "0ms",
-												transitionDuration: this.CHOICE_FADE_IN_DURATION + "ms"
+						<div>
+							{this.story.choices.map((c, i) => (
+								<div className="row" key={i}>
+									<div className="elem" style={{flexGrow: 1}}>
+										<CSSTransition
+											classNames="fade"
+											timeout={{
+												enter: this.CHOICE_FADE_IN_DELAY + this.CHOICE_FADE_IN_DELAY_PER * (this.story.choices.length + 1),
+												exit: this.CHOICE_CHOSEN_FADE_OUT_DELAY + this.CHOICE_FADE_IN_DURATION
 											}}
+											appear={true}
+											in={this.choiceChosen == null}
 										>
-										</button>
-									</CSSTransition>
+											<button
+												className={"button " + c.getTheme(this.story.config.buttonTheme)}
+												dangerouslySetInnerHTML={{__html: c.text}}
+												onClick={() => this.onChoice(c)}
+												style={{
+													width: "100%",
+													transitionDelay: this.choiceChosen == null
+														? (this.CHOICE_FADE_IN_DELAY + ((i + 1) * this.CHOICE_FADE_IN_DELAY_PER)) + "ms"
+														: this.choiceChosen == c ? this.CHOICE_CHOSEN_FADE_OUT_DELAY + "ms" : "0ms",
+													transitionDuration: this.CHOICE_FADE_IN_DURATION + "ms"
+												}}
+											>
+											</button>
+										</CSSTransition>
+									</div>
 								</div>
-							</div>
-						))}
+							))}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -441,6 +448,8 @@ window.addEventListener("load", () => {
 	let passagesElems = storyElem.getElementsByTagName("tw-passagedata");
 	let scriptElems = storyElem.getElementsByTagName("script");
 	let styleElems = storyElem.getElementsByTagName("style");
+	
+	let title = document.getElementsByTagName("title")[0].innerText;
 
 	let passages: Passage[] = [];
 	for (let i =0;i < passagesElems.length;i++) {
@@ -483,7 +492,7 @@ window.addEventListener("load", () => {
 		storyConfig = mergeObject(window.config, defaultStoryConfig);
 	}
 
-	let story = new Story(storyConfig, passages, startPassage);
+	let story = new Story(title, storyConfig, passages, startPassage);
 
 	story.start();
 

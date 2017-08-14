@@ -7,7 +7,10 @@ let storyConfig: StoryConfig = {
 	buttonTheme: "blue",
 	debug: false,
 	items: [],
-	stats: []
+	stats: [],
+	deadMessage: "You are dead",
+	displayHealth: true,
+	displayGold: true
 };
 
 export default storyConfig;

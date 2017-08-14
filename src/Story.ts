@@ -38,6 +38,7 @@ export default class Story {
 	}
 
     constructor(
+		public name: string,
 		public config: StoryConfig,
 		public passages: Passage[],
 		public startPassage
@@ -118,42 +119,53 @@ export default class Story {
 			return;
 		}
 
-		// Parsing links `[[...]]`
-		// First, we find them
+		// If the player is dead, we don't parse links (we only remove them)
+		// and we add a single choice that will lead to the passage chosen by the writer
 		let linkRegex = /\[\[(.+?)((->|\|)(.+?))?\]\]/gi;
+		let choices: Choice[];
+		if (!this.character.dead) {
+			// Parsing links `[[...]]`
+			// First, we find them
+			choices = [];
+			let currentMatch: RegExpExecArray;
+			while ((currentMatch = linkRegex.exec(processedText)) != null) {
+				console.log(currentMatch);
+				// We first check if it is a link with 2 parts
+				let name: string;
+				let text: string;
+				if (currentMatch[2] != null) {
+					// 2 parts
+					name = currentMatch[4];
+					text = currentMatch[1];
+				} else{
+					// 1 part
+					name = currentMatch[1];
+					text = name;
+				}
 	
-		let choices: Choice[] = [];
-		let currentMatch: RegExpExecArray;
-		while ((currentMatch = linkRegex.exec(processedText)) != null) {
-			console.log(currentMatch);
-			// We first check if it is a link with 2 parts
-			let name: string;
-			let text: string;
-			if (currentMatch[2] != null) {
-				// 2 parts
-				name = currentMatch[4];
-				text = currentMatch[1];
-			} else{
-				// 1 part
-				name = currentMatch[1];
-				text = name;
+				let passage = this.passages.filter(p => p.name == name)[0];
+	
+				if (passage != null) {
+					choices.push(new Choice(passage, marked(text)));
+				} else {
+					// The writer might have put a wrong passage name in the link,
+					// we ignore it if it is the case
+					// TODO: Display an error or something
+					this.error = `Couldn't find any passage with the name "${name}"`;
+				}
 			}
-
-			let passage = this.passages.filter(p => p.name == name)[0];
-
-			if (passage != null) {
-				choices.push(new Choice(passage, marked(text)));
-			} else {
-				// The writer might have put a wrong passage name in the link,
-				// we ignore it if it is the case
-				// TODO: Display an error or something
-				this.error = `Couldn't find any passage with the name "${name}"`;
-			}
+		} else {
+			// TODO: Find a way to let the writer customize the death passage
+			choices = [
+				new Choice(
+					new Passage(45, "Final passage", ["theme-red", "button-red"], "[Insert thanks]"),
+					this.config.deadMessage
+				)
+			];
 		}
 		this.choices = choices;
 
 		// Then, we remove them
-		console.log(processedText);
 		processedText = processedText.replace(linkRegex, "");
 		
 		// We then transform the markdown

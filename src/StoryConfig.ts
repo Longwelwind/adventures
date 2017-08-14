@@ -8,5 +8,8 @@ export default interface StoryConfig {
 	buttonTheme: string,
 	debug: boolean,
 	items: Item[],
-	stats: Stat[]
+	stats: Stat[],
+	deadMessage: string,
+	displayHealth: boolean,
+	displayGold: boolean
 }

@@ -10,6 +10,10 @@ export default class Character {
 	@observable health: number = 18;
 	@observable gold: number = 0;
 
+	get dead(): boolean {
+		return this.health == 0;
+	}
+
 	// Bad design, but it is easier to code than to make a `CharacterStat`
 	// entity that has a `stat` and a `count` field.
 	stats: { [key: string]: number } = {};
