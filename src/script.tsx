@@ -84,18 +84,19 @@ class Interface extends React.Component<InterfaceProps, null> {
 										</div>
 									</div>
 								)}
-								{/*
-								<div className="row">
-									<div className="elem">
-										<div>
-											{this.story.stats.map(stat => (
-												<div>
-													{stat.name}: {this.character.getStat(stat.name)}
-												</div>
-											))}
+								{this.story.config.displayStats && (
+									<div className="row">
+										<div className="elem">
+											<div>
+												{this.story.stats.map(stat => (
+													<div>
+														{stat.name}: {this.character.getStat(stat.name)}
+													</div>
+												))}
+											</div>
 										</div>
 									</div>
-								</div>*/}
+								)}
 								<hr />
 								<div className="row">
 									<div className="elem">
