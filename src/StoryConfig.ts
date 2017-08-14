@@ -10,7 +10,7 @@ export default interface StoryConfig {
 	items: Item[],
 	stats: Stat[],
 	deadMessage: string,
-	displayHealth: boolean,
-	displayGold: boolean,
-	displayStats: boolean
+	enableHealth: boolean,
+	enableGold: boolean,
+	enableStats: boolean
 }

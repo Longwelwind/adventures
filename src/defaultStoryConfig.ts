@@ -9,9 +9,9 @@ let storyConfig: StoryConfig = {
 	items: [],
 	stats: [],
 	deadMessage: "You are dead",
-	displayHealth: true,
-	displayGold: true,
-	displayStats: false
+	enableHealth: true,
+	enableGold: true,
+	enableStats: false
 };
 
 export default storyConfig;

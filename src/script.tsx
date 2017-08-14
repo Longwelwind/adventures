@@ -71,7 +71,7 @@ class Interface extends React.Component<InterfaceProps, null> {
 										</h2>
 									</div>
 								</div>
-								{this.story.config.displayHealth && (
+								{this.story.config.enableHealth && (
 									<div className="row">
 										<div className="elem" style={{flexGrow: 1}}>
 											<div className="progress-bar">
@@ -84,7 +84,7 @@ class Interface extends React.Component<InterfaceProps, null> {
 										</div>
 									</div>
 								)}
-								{this.story.config.displayStats && (
+								{this.story.config.enableStats && (
 									<div className="row">
 										<div className="elem">
 											<div>
@@ -112,7 +112,7 @@ class Interface extends React.Component<InterfaceProps, null> {
 										</div>
 									</div>
 								</div>
-								{this.story.config.displayGold && (
+								{this.story.config.enableGold && (
 									<div className="row">
 										<div className="elem" style={{flexGrow: 1}}>
 											<div
