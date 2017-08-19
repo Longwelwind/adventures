@@ -115,11 +115,8 @@ class Interface extends React.Component<InterfaceProps, null> {
 								{this.story.config.enableGold && (
 									<div className="row">
 										<div className="elem" style={{flexGrow: 1}}>
-											<div
-												className="row"
-												style={{justifyContent: "flex-end", alignItems: "center"}}
-											>
-												<div className="elem">
+											<div className="money-tag">
+												<div>
 													{this.character.gold}
 												</div>
 												<div>
@@ -218,6 +215,82 @@ class Interface extends React.Component<InterfaceProps, null> {
 								</div>
 							</div>
 						)}
+						{this.story.shop != null && (
+							<div className="row">
+								<div className="elem" style={{display: "flex", justifyContent: "center", flexGrow: 1}}>
+										<CSSTransition
+											classNames="fade"
+											timeout={{
+												enter: this.PROP_FADE_IN_DELAY + this.PROP_FADE_IN_DURATION,
+												exit: this.CHOICE_CHOSEN_FADE_OUT_DELAY + this.PASSAGE_FADE_IN_DURATION
+											}}
+											appear={true}
+											in={this.choiceChosen == null}
+										>
+											<div
+												className={"panel frame-light shop-panel"}
+												style={{
+													transitionDelay: this.choiceChosen == null
+														? this.PROP_FADE_IN_DELAY + "ms"
+														: this.CHOICE_CHOSEN_FADE_OUT_DELAY + "ms",
+													transitionDuration: this.PASSAGE_FADE_IN_DURATION + "ms"
+												}}
+												key={1}
+											>
+												<div className="panel-content" style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between"}}>
+													{this.story.shop.entries.map((entry, i) => (
+														<div className="shop-entry">
+															<div className="row" style={{justifyContent: "space-between"}}>
+																<div className="elem">
+																	<ItemComponent
+																		key={i}
+																		item={this.story.shop.inventory.items[i]}
+																		draggable={entry.bought}
+																		onDragStart={() => this.onItemDragStart(this.story.shop.inventory, i)}
+																		onDrop={() => this.onItemDrop(this.story.shop.inventory, i)}
+																	/>
+																</div>
+																{!entry.bought ? (
+																	<div className="elem">
+																		<div className="row">
+																			<div className="elem">
+																				<div className="money-tag">
+																					<div>
+																						{entry.price}
+																					</div>
+																					<div>
+																						<div className="item gold medium-coin"></div>
+																					</div>
+																				</div>
+																			</div>
+																			<div className="elem">
+																				<button
+																				style={{visibility: this.story.shop.canBuy(entry) ? "visible" : "hidden"}}
+																					className="button blue"
+																					onClick={e => this.story.shop.buy(entry)}
+																				>
+																					Buy
+																				</button>
+																			</div>
+																		</div>
+																	</div>
+																) : (
+																	<div className="elem">
+																		{/*
+																			This div is there to still take the remaining place
+																			and keep the item-slot on the left-side
+																		*/}
+																	</div>
+																)}
+															</div>
+														</div>
+													))}
+												</div>
+											</div>
+										</CSSTransition>
+								</div>
+							</div>
+						)}
 						<div>
 							{this.story.choices.map((c, i) => (
 								<div className="row" key={i}>
@@ -293,6 +366,7 @@ interface ItemComponentProps {
 	onClick?: () => void;
 	onDragStart?: () => void;
 	onDrop?: () => void;
+	draggable?: boolean;
 }
 
 @observer
@@ -315,7 +389,7 @@ class ItemComponent extends React.Component<ItemComponentProps, null> {
 						}
 					>
 						<div className="item clickable"
-							draggable={true}
+							draggable={this.props.draggable}
 							onDragStart={e => this.onDragStart(e)}
 							onClick={this.props.onClick}
 							style={{backgroundPosition: this.getBackgroundPosition()}}

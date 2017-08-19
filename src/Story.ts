@@ -1,5 +1,6 @@
-import { Stat } from './Stat';
+import { Shop, ShopEntry } from './Shop';
 import { observable } from 'mobx';
+import { Stat } from './Stat';
 
 import Inventory from "./Inventory";
 import Choice from "./Choice";
@@ -28,6 +29,7 @@ export default class Story {
 	@observable choices: Choice[];
 	@observable lootableInventory: Inventory;
 	@observable error: string = null;
+	@observable shop: Shop;
 
 	get items(): Item[] {
 		return this.config.items;
@@ -70,6 +72,12 @@ export default class Story {
 		return this.addLootItemItem(item);	
 	}
 
+	addShopItem(itemTag: string, price: number) {
+		let item = this.getItem(itemTag);
+
+		this.addShopItemItem(item, price);
+	}
+
 	getItem(itemTag: string): Item {
 		let item = this.items.filter(i => i.tag == itemTag)[0];
 		if (item == null) {
@@ -105,9 +113,18 @@ export default class Story {
 		return this.lootableInventory.add(item);
 	}
 
+	private addShopItemItem(item: Item, price: number) {
+		if (this.shop == null) {
+			this.shop = new Shop(this);
+		}
+
+		return this.shop.addItem(item, price);
+	}
+
 	private showPassage(passage: Passage) {
 		// We flush the loot and things
 		this.lootableInventory = null;
+		this.shop = null;
 
 		// First pass through lodash's template to execute
 		// the inlined javascript code

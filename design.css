@@ -193,6 +193,10 @@ h2 {
 	border-image-source: url("[[./images/Windows/_sheet_window_06.png,0,0,48,48]]");
 }
 
+.panel.frame-light .item-slot {
+	background-image: url("[[./images/Windows/_sheet_window_06.png,64,0,16,16]]");
+}
+
 
 .panel.frame-gold {
 	border-image-source: url("[[./images/Windows/_sheet_window_07.png,0,0,48,48]]");
@@ -361,6 +365,25 @@ h2 {
 
 	padding-left: 40px;
 	padding-right: 40px;
+}
+
+.money-tag {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.money-tag > div:first-child {
+	margin-right: 2px;
+}
+
+.shop-panel {
+	width: 400px;
+}
+
+.shop-entry {
+	width: 180px;
+	height: 36px;
 }
 
 .clickable {
