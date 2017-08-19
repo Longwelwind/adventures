@@ -1,4 +1,5 @@
 import StoryConfig from "./StoryConfig";
+import defaultItems from "./defaultItems";
 
 let storyConfig: StoryConfig = {
 	characterTheme: "tablet",
@@ -6,7 +7,7 @@ let storyConfig: StoryConfig = {
 	passageTheme: "parchment",
 	buttonTheme: "blue",
 	debug: false,
-	items: [],
+	items: defaultItems,
 	stats: [],
 	deadMessage: "You are dead",
 	enableHealth: true,
