@@ -51,11 +51,33 @@ story.addLootItem("shield");
 
 **Adventures** comes by default with a list of pre-defined items that you can use in your stories, shown in the table below. The first column (`tag`) is the name you must use in the functions described above.
 
-tag|name|icon||tag|name|icon
----|---|---|---|---|---|---
-`dagger`|Dagger|<div class="item" style="background-position: -480px -3072px"></div>||`fire-dagger`|Fire Dagger|<div class="item" style="background-position: 0px -3104px"></div>
-`bow`|Bow|<div class="item" style="background-position: -96px -2976px"></div>||`fire-bow`|Fire Bow|<div class="item" style="background-position: -128px -2976px"></div>
-`axe`|Axe|<div class="item" style="background-position: -160px -2912px"></div>||`fire-axe`|Fire Axe|<div class="item" style="background-position: -192px -2912px"></div>
-`scepter`|Scepter|<div class="item" style="background-position: -480px -3296px"></div>||`fire-scepter`|Fire Scepter|<div class="item" style="background-position: 0px -3328px"></div>
-`sword`|Sword|<div class="item" style="background-position: -32px -3424px"></div>||`fire-sword`|Fire Sword|<div class="item" style="background-position: -64px -3424px"></div>
-`red-potion`|Red potion|<div class="item" style="background-position: -448px -1152px"></div>||||
+<table>
+<tr>
+<th>tag</th><th>name</th><th>icon</th>
+<th>tag</th><th>name</th><th>icon</th>
+</tr>
+<tr>
+<td><code>dagger</code></td><td>Dagger</td><td><div class="item" style="background-position: -480px -3072px"></div></td>
+<td><code>fire-dagger</code></td><td>Fire Dagger</td><td><div class="item" style="background-position: 0px -3104px"></div></td>
+</tr>
+<tr>
+<td><code>bow</code></td><td>Bow</td><td><div class="item" style="background-position: -96px -2976px"></div></td>
+<td><code>fire-bow</code></td><td>Fire Bow</td><td><div class="item" style="background-position: -128px -2976px"></div></td>
+</tr>
+<tr>
+<td><code>axe</code></td><td>Axe</td><td><div class="item" style="background-position: -160px -2912px"></div></td>
+<td><code>fire-axe</code></td><td>Fire Axe</td><td><div class="item" style="background-position: -192px -2912px"></div></td>
+</tr>
+<tr>
+<td><code>scepter</code></td><td>Scepter</td><td><div class="item" style="background-position: -480px -3296px"></div></td>
+<td><code>fire-scepter</code></td><td>Fire Scepter</td><td><div class="item" style="background-position: 0px -3328px"></div></td>
+</tr>
+<tr>
+<td><code>sword</code></td><td>Sword</td><td><div class="item" style="background-position: -32px -3424px"></div></td>
+<td><code>fire-sword</code></td><td>Fire Sword</td><td><div class="item" style="background-position: -64px -3424px"></div></td>
+</tr>
+<tr>
+<td><code>red-potion</code></td><td>Red potion</td><td><div class="item" style="background-position: -448px -1152px"></div></td>
+<td></td><td></td><td></td>
+</tr>
+</table>
