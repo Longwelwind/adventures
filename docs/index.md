@@ -9,6 +9,11 @@ title: "Home"
 
 ![Demo of Adventures]({{ site.baseurl }}/assets/home-demo.gif)
 
+The documentation is split into 2 sections:
+
+* **Basic Usage** shows how to use the basic functions of **Adventures** and is perfect for beginners, or those who don't possess sufficient Javascript knowledge as most scripts can be copy/pasted into your story. This section will show you how to change the health of the player, change the gold it holds and add or remove items in its inventory.
+* **Advanced Usage** shows the advanced features of **Adventures** and is reserved for those who possess an intermediate knowledge of Javascript and want to make more complex interactions. This section will show you how to create custom items, for example.
+
 ### Requirements
 
 **Adventures** is based on [klembot's Snowman 2](https://bitbucket.org/klembot/snowman-2) and works by calling Javascript functions inside `<% %>` tags to change the state of the character and the story. For example, to add a sword to the inventory of the player, you'd write in one of your passages:

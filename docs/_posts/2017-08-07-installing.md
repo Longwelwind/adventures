@@ -15,7 +15,7 @@ You can now create new story or edit an existing one and change the story format
 
 ### Interactions
 
-**Adventures** is based on [klembot's Snowman 2](https://bitbucket.org/klembot/snowman-2). The content of the passages are processed by [lodash's _.template function](https://lodash.com/docs/4.17.4#template), which allows you to execute Javascript scripts inside the `<% %>` tags, and print dynamic valeus using the `<%= %>` tags.
+**Adventures** is based on [klembot's Snowman 2](https://bitbucket.org/klembot/snowman-2). The content of the passages are processed by [lodash's _.template function](https://lodash.com/docs/4.17.4#template), which allows you to execute Javascript scripts inside the `<% %>` tags, and print dynamic values using the `<%= %>` tags.
 
 For example, the passage:
 
