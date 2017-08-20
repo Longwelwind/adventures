@@ -20,7 +20,7 @@ codeurl: 'https://github.com/bruth/jekyll-docs-template'
 # Default categories (in order) to appear in the navigation
 sections: [
     ['basic-usage', 'Basic Usage'],
-    ['advanced-usage', 'Advanced Usage']
+    ['advanced-usage', 'Advanced Usage'],
     ['tut', 'Tutorial'],
     ['ref', 'Reference'],
     ['dev', 'Developers'],
