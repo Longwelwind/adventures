@@ -77,7 +77,43 @@ story.addLootItem("shield");
 <td><code>fire-sword</code></td><td>Fire Sword</td><td><div class="item" style="background-position: -64px -3424px"></div></td>
 </tr>
 <tr>
-<td><code>red-potion</code></td><td>Red potion</td><td><div class="item" style="background-position: -448px -1152px"></div></td>
+<td><code>shield</code></td><td>Shield</td><td><div class="item" style="background-position: -64px -2272px"></div></td>
+<td><code>wooden-shield</code></td><td>Wooden Shield</td><td><div class="item" style="background-position: 0px -2272px"></div></td>
+</tr>
+<tr>
+<td><code>pavise-shield</code></td><td>Pavise Shield</td><td><div class="item" style="background-position: -160px -2272px"></div></td>
+<td><code>targe</code></td><td>Targe</td><td><div class="item" style="background-position: -96px -2272px"></div></td>
+</tr>
+<tr>
+<td><code>holy-shield</code></td><td>Holy Shield</td><td><div class="item" style="background-position: -352px -2272px"></div></td>
+<td><code>golden-shield</code></td><td>Golden Shield</td><td><div class="item" style="background-position: -448px -2272px"></div></td>
+</tr>
+<tr>
+<td><code>small-red-potion</code></td><td>Small Red potion</td><td><div class="item" style="background-position: -64px -1440px"></div></td>
+<td><code>red-potion</code></td><td>Red potion</td><td><div class="item" style="background-position: -96px -1536px"></div></td>
+</tr>
+<tr>
+<td><code>big-red-potion</code></td><td>Big Red potion</td><td><div class="item" style="background-position: -448px -1152px"></div></td>
+<td><code>small-green-potion</code></td><td>Small Green potion</td><td><div class="item" style="background-position: -160px -1440px"></div></td>
+</tr>
+<tr>
+<td><code>green-potion</code></td><td>Green potion</td><td><div class="item" style="background-position: -192px -1536px"></div></td>
+<td><code>big-green-potion</code></td><td>Big Green potion</td><td><div class="item" style="background-position: -32px -1184px"></div></td>
+</tr>
+<tr>
+<td><code>feather</code></td><td>Feather</td><td><div class="item" style="background-position: -160px -416px"></div></td>
+<td><code>bat-wing</code></td><td>Bat Wing</td><td><div class="item" style="background-position: -384px -384px"></div></td>
+</tr>
+<tr>
+<td><code>bird-beak</code></td><td>Bird Beak</td><td><div class="item" style="background-position: -416px -384px"></div></td>
+<td><code>long-bird-beak</code></td><td>Long Bird Beak</td><td><div class="item" style="background-position: -416px -416px"></div></td>
+</tr>
+<tr>
+<td><code>book</code></td><td>Book</td><td><div class="item" style="background-position: -448px -1952px"></div></td>
+<td><code>map</code></td><td>Map</td><td><div class="item" style="background-position: -352px -2016px"></div></td>
+</tr>
+<tr>
+<td><code>scroll</code></td><td>Scroll</td><td><div class="item" style="background-position: -448px -1984px"></div></td>
 <td></td><td></td><td></td>
 </tr>
 </table>
