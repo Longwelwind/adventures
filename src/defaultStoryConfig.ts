@@ -12,7 +12,8 @@ let storyConfig: StoryConfig = {
 	deadMessage: "You are dead",
 	enableHealth: true,
 	enableGold: true,
-	enableStats: false
+	enableStats: false,
+	displayCharacterPanel: true
 };
 
 export default storyConfig;

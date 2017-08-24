@@ -1,5 +1,5 @@
-import { Shop, ShopEntry } from './Shop';
 import { observable } from 'mobx';
+import { Shop, ShopEntry } from './Shop';
 import { Stat } from './Stat';
 
 import Inventory from "./Inventory";
@@ -30,6 +30,7 @@ export default class Story {
 	@observable lootableInventory: Inventory;
 	@observable error: string = null;
 	@observable shop: Shop;
+	@observable finished: boolean = false;
 
 	get items(): Item[] {
 		return this.config.items;

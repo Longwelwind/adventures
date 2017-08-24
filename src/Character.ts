@@ -4,7 +4,7 @@ import Inventory from "./Inventory";
 import Story from "./Story";
 
 export default class Character {
-	name: string = "Aramis";
+	@observable name: string = "Aramis";
 	inventory: Inventory = new Inventory(this.story, 16);
 	maxHealth: number = 20;
 	@observable health: number = 18;

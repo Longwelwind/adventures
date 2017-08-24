@@ -12,5 +12,6 @@ export default interface StoryConfig {
 	deadMessage: string,
 	enableHealth: boolean,
 	enableGold: boolean,
-	enableStats: boolean
+	enableStats: boolean,
+	displayCharacterPanel: boolean
 }

@@ -617,3 +617,9 @@ p + p {
 	background-image: url("[[./images/Pack 1B/_sheet.png]]");
 	background-size: 512px auto;
 }
+
+.item-big {
+	width: 64px;
+	height: 64px;
+	background-size: 1024px auto;
+}
