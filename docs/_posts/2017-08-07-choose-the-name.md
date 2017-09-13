@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Change the name"
+title: "Changing the hero's name"
 category: others
 date: 2017-08-07 21:06:04
 ---
