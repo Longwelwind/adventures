@@ -63,8 +63,6 @@ export class Interface extends React.Component<InterfaceProps, null> {
 	}
 
 	render() {
-		console.log(this.story.config.displayCharacterPanel);
-
 		return (
 			<div className="container">
 				<div className="row">
@@ -82,8 +80,8 @@ export class Interface extends React.Component<InterfaceProps, null> {
 							</CSSTransition>
 					</div>
 					{!this.story.finished ? (
-						<div className="elem" style={{flexGrow: 1}}>
-							{this.story.error != null && (
+						this.story.error != null ? (
+							<div className="elem" style={{flexGrow: 1}}>
 								<div className="row">
 									<div className="elem" style={{flexGrow: 1}}>
 										<div className="panel red">
@@ -93,7 +91,9 @@ export class Interface extends React.Component<InterfaceProps, null> {
 										</div>
 									</div>
 								</div>
-							)}
+							</div>
+						) : (
+							<div className="elem" style={{flexGrow: 1}}>
 							<div className="row">
 								<div className="elem" style={{flexGrow: 1}}>
 									<CSSTransition
@@ -305,6 +305,7 @@ export class Interface extends React.Component<InterfaceProps, null> {
 								</div>
 							)}
 						</div>
+						)
 					) : (
 						<div className="elem" style={{flexGrow: 1}}>
 							<div className="row">
