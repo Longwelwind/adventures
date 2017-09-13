@@ -7,7 +7,7 @@ export default class Character {
 	@observable name: string = "Aramis";
 	inventory: Inventory = new Inventory(this.story, 16);
 	maxHealth: number = 20;
-	@observable health: number = 18;
+	@observable health: number = 20;
 	@observable gold: number = 0;
 
 	get dead(): boolean {
