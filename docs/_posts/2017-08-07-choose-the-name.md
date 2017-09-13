@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Item chooser"
+title: "Change the name"
 category: others
 date: 2017-08-07 21:06:04
 ---
