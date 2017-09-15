@@ -24,4 +24,4 @@ In the middle of the hall, amidst the corpses of the goblins, you find a sword. 
 <% character.inventory.addItem("sword"); %>
 ```
 
-It is recommended to know a bit of Javascript, but it is not mandatory. Most function calls are easily understandable and can be copy/pasted from the docs.
+If you have no knowledge of Javascript, a small section describing the basics of Javascript will help you get the minimum skill to use Adventures.
