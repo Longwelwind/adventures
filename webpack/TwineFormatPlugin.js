@@ -53,14 +53,14 @@ TwineFormatPlugin.prototype.apply = function(compiler) {
 						designCode = designCode.replace(/\[\[(.*)\]\]/gi, (substring, argsString) => {
 							return base64EncodedImages[substring];
 						});
-				
+
 						let source = template
 							.replace("/*{{DESIGN}}*/", () => designCode)
 							.replace("/*{{CODE}}*/", () => compilation.assets["./dist/bundle-code.js"] != null ? compilation.assets["./dist/bundle-code.js"].source() : "");
 
 						let options = {
 							name: "Longs' Adventurers",
-							version: "1.0.1",
+							version: "1.0.0",
 							author: "Longwelwind",
 							description: "Adventurers description",
 							proofing: false,
