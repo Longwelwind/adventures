@@ -5,7 +5,7 @@ title: "Home"
 
 ### What is Adventures
 
-**Adventures** is a custom story format for [Twine 2](https://twinery.org/) made by [Longwelwind](https://twitter.com/Longwelwind) that allows writers to add RPG elements such as health, items, golds and more to their story. The project is open source; feel free to contribute on the [Github repository](https://github.com/Longwelwind/adventures) !
+**Adventures** is a custom story format for [Twine 2](https://twinery.org/) made by [Longwelwind](https://twitter.com/Longwelwind) that allows writers to add RPG elements such as health, items, golds and more to their story. The project is free and open source; feel free to contribute on the [Github repository](https://github.com/Longwelwind/adventures) !
 
 ![Demo of Adventures]({{ site.baseurl }}/assets/home-demo.gif)
 
