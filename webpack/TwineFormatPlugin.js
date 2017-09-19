@@ -59,10 +59,10 @@ TwineFormatPlugin.prototype.apply = function(compiler) {
 							.replace("/*{{CODE}}*/", () => compilation.assets["./dist/bundle-code.js"] != null ? compilation.assets["./dist/bundle-code.js"].source() : "");
 
 						let options = {
-							name: "Longs' Adventurers",
-							version: "1.0.0",
+							name: "Adventures",
+							version: "1.0.1",
 							author: "Longwelwind",
-							description: "Adventurers description",
+							description: "A story format to create RPG stories with health, loot, gold and more. See its <a href=\"https://longwelwind.github.io/adventures/\">documentation</a>",
 							proofing: false,
 							source: source
 						};
