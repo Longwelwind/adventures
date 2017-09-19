@@ -99,6 +99,10 @@ export default class Story {
 		return item;
 	}
 
+	/**
+	 * See @{Story#showPassage}
+	 * @param name Name of the passage to show
+	 */
 	show(name: string) {
 		let passage = this.passages.filter(p => p.name == name)[0];
 		if (passage == null) {
@@ -129,7 +133,7 @@ export default class Story {
 
 		return this.lootableInventory.add(item);
 	}
-	
+
 	private addShopItemItem(item: Item, price: number) {
 		if (this.shop == null) {
 			this.shop = new Shop(this);
