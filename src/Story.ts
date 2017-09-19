@@ -22,6 +22,10 @@ export default class Story {
 
 	character: Character;
 
+	/**
+	 * Contains the passages traversed by the player through
+	 * its playthrough
+	 */
 	history: Passage[] = [];
 
 	@observable currentPassage: Passage;
@@ -49,6 +53,9 @@ export default class Story {
 
 	}
 	
+	/**
+	 * Initialize the game and launch the ´startPassage´
+	 */
 	start() {
 		this.character = new Character(this);
 
@@ -67,6 +74,10 @@ export default class Story {
 		this.showPassage(choice.passage);
 	}
 
+	/**
+	 * To be called by the writer's scripts
+	 * @param itemTag 
+	 */
 	addLootItem(itemTag: string): boolean {
 		let item = this.getItem(itemTag);
 
@@ -106,6 +117,11 @@ export default class Story {
 		return stat;
 	}
 
+	/**
+	 * If not already existing, create a loot chest and add
+	 * an `item` inside it.
+	 * @param item `Item` to add in the chest
+	 */
 	private addLootItemItem(item: Item): boolean {
 		if (this.lootableInventory == null) {
 			this.lootableInventory = new Inventory(this, 6);
@@ -113,7 +129,7 @@ export default class Story {
 
 		return this.lootableInventory.add(item);
 	}
-
+	
 	private addShopItemItem(item: Item, price: number) {
 		if (this.shop == null) {
 			this.shop = new Shop(this);
@@ -122,6 +138,11 @@ export default class Story {
 		return this.shop.addItem(item, price);
 	}
 
+	/**
+	 * Pass the current passage and launch the Passage `passage`.
+	 * This will also destroy loot & shops in the current passage.
+	 * @param passage The passage to show.
+	 */
 	private showPassage(passage: Passage) {
 		// We flush the loot and things
 		this.lootableInventory = null;
@@ -137,10 +158,10 @@ export default class Story {
 			return;
 		}
 
-		// If the player is dead, we don't parse links (we only remove them)
-		// and we add a single choice that will lead to the passage chosen by the writer
 		let linkRegex = /\[\[(.+?)((->|\|)(.+?))?\]\]/gi;
 		let choices: Choice[];
+
+		// If the player is dead, we don't parse links ...
 		if (!this.character.dead) {
 			// Parsing links `[[...]]`
 			// First, we find them
@@ -173,6 +194,7 @@ export default class Story {
 				}
 			}
 		} else {
+			// ...and we add a single choice that will lead to the passage chosen by the writer
 			// TODO: Find a way to let the writer customize the death passage
 			choices = [
 				new Choice(
@@ -183,17 +205,14 @@ export default class Story {
 		}
 		this.choices = choices;
 
-		// Then, we remove them
+		// Rremove the parsed links from the text
 		processedText = processedText.replace(linkRegex, "");
 		
-		// We then transform the markdown
+		// Parse & transform the markdown
 		this.rendereredText = marked(processedText);
 		this.currentPassage = passage;
 
+		// Add the new passage to the history
 		this.history.push(passage);
-	}
-
-	private parseChoice(line: string): Choice {
-		return null;
 	}
 }
