@@ -2,8 +2,8 @@ import { observer } from 'mobx-react';
 import * as React from "react";
 import Story from "./Story";
 import Character from "./Character";
-import { Interface } from "./script";
 import ItemComponent from "./ItemComponent";
+import Interface from './Interface';
 
 interface CharacterComponentProps {
 	story: Story;
