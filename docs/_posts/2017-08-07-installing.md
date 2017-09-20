@@ -8,7 +8,7 @@ date: 2017-08-07 21:06:05
 To install **Adventures** in Twine 2, click `Formats` in the main menu, then `Add a New Format` and paste the url below into the box. Finally, click `Add`.
 
 ```
-https://cdn.rawgit.com/Longwelwind/adventures/cb54259c/dist/format.js
+https://cdn.rawgit.com/Longwelwind/adventures/9edd1b56/dist/format.js
 ```
 
 You can now create new story or edit an existing one and change the story format for your story.
