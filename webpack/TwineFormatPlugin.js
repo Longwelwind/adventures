@@ -60,7 +60,7 @@ TwineFormatPlugin.prototype.apply = function(compiler) {
 
 						let options = {
 							name: "Adventures",
-							version: "1.0.1",
+							version: "1.0.2",
 							author: "Longwelwind",
 							description: "A story format to create RPG stories with health, loot, gold and more. See its <a href=\"https://longwelwind.github.io/adventures/\">documentation</a>",
 							proofing: false,
