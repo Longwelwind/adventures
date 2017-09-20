@@ -1,8 +1,6 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
+/**
+ * CSS Reset from http://meyerweb.com/eric/tools/css/reset/ 
+ */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -48,9 +46,8 @@ table {
 }
 
 /**
- * Custom css
+ * Custom css for Adventures
  */
-
 @font-face {
 	font-family: "better-pixel";
 	
@@ -135,19 +132,123 @@ h2 {
 	border: none;
 }
 
-/*.panel-horizontal {
-	border-width: 0 32px;
+.tooltip {
+	border-image: url([[./images/Windows/_sheet_window_29.png,64,0,48,48]]);
+	border-image-slice: 12 fill;
+	border-width: 12px;
+
+	max-width: 150px;
+}
+
+
+.progress-bar {
+	height: 12px;
+	border-width: 0 2px;
 	border-style: solid;
 	border-color: transparent;
-	border-image: url("[[./images/Windows/_sheet_window_15.png,0,48,48,16]]") 0 32 fill repeat;
+	border-image-repeat: repeat;
+	border-image-slice: 0 2 fill;
 
-	height: 32px;
-}*/
+	display: flex;
+	align-items: center;
+}
+
+.progress-bar .fill {
+	height: 8px;
+	border-width: 0 2px;
+	border-style: solid;
+	border-color: transparent;
+	border-image-repeat: repeat;
+	border-image-slice: 0 2 fill;
+}
+
+#character-panel {
+	width: 182px;
+	box-sizing: border-box;
+}
+
+.chest-panel {
+	width: 90px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.money-tag {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.money-tag > div:first-child {
+	margin-right: 2px;
+}
+
+.shop-panel {
+	width: 400px;
+}
+
+.shop-entry {
+	width: 180px;
+	height: 36px;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+strong {
+	font-weight: bold;
+}
+
+button {
+	/* Removes the default style for button */
+	border-image-repeat: repeat;
+	border-style: solid;
+	border-color: transparent;
+	background: none;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+	outline: none;
+	text-shadow: inherit;
+}
+
+.button-up {
+	width: 16px;
+	height: 16px;
+	transform: rotate(90deg);
+	background-image: url([[./images/Scrolling/scrolling_10.png]]);
+	background-position: center;
+}
+
+.button-down {
+	width: 16px;
+	height: 16px;
+	transform: rotate(-90deg);
+	background-image: url([[./images/Scrolling/scrolling_12.png]]);
+	background-position: center;
+}
+
+.button {
+	border-image-slice: 2 2 6 2 fill;
+	border-width: 2px 2px 6px 2px;
+	padding: 6px 6px 6px 6px;
+	transition-property: opacity;
+}
+
+.button:active {
+	border-image-slice: 2 fill;
+	border-width: 2px;
+	margin-top: 4px;
+}
 
 /**
- * Themes for panel
+ * Panel themes
  */
-
 .panel.rock-beige {
 	border-image-source: url("[[./images/Windows/_sheet_window_01.png,0,0,48,48]]");
 }
@@ -321,125 +422,15 @@ h2 {
 
 .panel.chest {
 	border-image-source: url("[[./images/Windows/_sheet_window_26.png,0,0,48,48]]");
-
-	/* Those styles are for the small handle on the top */
-	/* TODO: The small handle on the toop */
 }
 
 .panel.chest .item-slot {
 	background-image: url([[./images/Windows/_sheet_window_26.png,64,32,16,16]]);
 }
 
-
-.progress-bar {
-	height: 12px;
-	border-width: 0 2px;
-	border-style: solid;
-	border-color: transparent;
-	border-image-repeat: repeat;
-	border-image-slice: 0 2 fill;
-
-	display: flex;
-	align-items: center;
-}
-
-.progress-bar .fill {
-	height: 8px;
-	border-width: 0 2px;
-	border-style: solid;
-	border-color: transparent;
-	border-image-repeat: repeat;
-	border-image-slice: 0 2 fill;
-}
-
-#character-panel {
-	width: 182px;
-	box-sizing: border-box;
-}
-
-.chest-panel {
-	width: 90px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	padding-left: 40px;
-	padding-right: 40px;
-}
-
-.money-tag {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-}
-
-.money-tag > div:first-child {
-	margin-right: 2px;
-}
-
-.shop-panel {
-	width: 400px;
-}
-
-.shop-entry {
-	width: 180px;
-	height: 36px;
-}
-
-.clickable {
-	cursor: pointer;
-}
-
-strong {
-	font-weight: bold;
-}
-
-button {
-	border-image-repeat: repeat;
-	border-style: solid;
-	border-color: transparent;
-	background: none;
-	font: inherit;
-	color: inherit;
-	cursor: pointer;
-	outline: none;
-	text-shadow: inherit;
-}
-
-.button-up {
-	width: 16px;
-	height: 16px;
-	transform: rotate(90deg);
-	background-image: url([[./images/Scrolling/scrolling_10.png]]);
-	background-position: center;
-}
-
-.button-down {
-	width: 16px;
-	height: 16px;
-	transform: rotate(-90deg);
-	background-image: url([[./images/Scrolling/scrolling_12.png]]);
-	background-position: center;
-}
-
-.button {
-	border-image-slice: 2 2 6 2 fill;
-	border-width: 2px 2px 6px 2px;
-	padding: 6px 6px 6px 6px;
-	/* Because the `fade` animation will change everything otherwise */
-	transition-property: opacity;
-}
-
-.button:active {
-	border-image-slice: 2 fill;
-	border-width: 2px;
-	margin-top: 4px;
-}
-
 /**
  * Button themes
  */
-
 .button.blue {
 	border-image-source: url([[./images/Buttons/Blue/buttons_02.png]]);
 }
@@ -530,19 +521,9 @@ button {
 	border-image-source: url([[./images/Buttons/Yellow/buttons_18.png]]);
 }
 
-
-.tooltip {
-	border-image: url([[./images/Windows/_sheet_window_29.png,64,0,48,48]]);
-	border-image-slice: 12 fill;
-	border-width: 12px;
-
-	max-width: 150px;
-}
-
 /**
  * Transitions
  */
-
 .fade-enter, .fade-appear {
 	opacity: 0;
 }
