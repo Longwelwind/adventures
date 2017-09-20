@@ -202,7 +202,7 @@ export default class Story {
 			// TODO: Find a way to let the writer customize the death passage
 			choices = [
 				new Choice(
-					new Passage(45, "Final passage", ["theme-red", "button-red"], "[Insert thanks]"),
+					new Passage(45, "Final passage", ["theme-red", "button-red"], "You are dead.\n\nThanks for playing, you can try again by pressing F5!"),
 					this.config.deadMessage
 				)
 			];
