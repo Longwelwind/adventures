@@ -15,6 +15,10 @@ interface ItemComponentProps {
 export default class ItemComponent extends React.Component<ItemComponentProps, null> {
 	readonly SIZE_ITEM = 32;
 
+	static defaultProps: Partial<ItemComponentProps> = {
+		draggable: true
+	};
+
 	render() {
 		return (
 			<div

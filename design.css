@@ -133,7 +133,7 @@ h2 {
 }
 
 .tooltip {
-	border-image: url([[./images/Windows/_sheet_window_29.png,64,0,48,48]]);
+	border-image: url("[[./images/Windows/_sheet_window_29.png,64,0,48,48]]");
 	border-image-slice: 12 fill;
 	border-width: 12px;
 
@@ -221,7 +221,7 @@ button {
 	width: 16px;
 	height: 16px;
 	transform: rotate(90deg);
-	background-image: url([[./images/Scrolling/scrolling_10.png]]);
+	background-image: url("[[./images/Scrolling/scrolling_10.png]]");
 	background-position: center;
 }
 
@@ -229,7 +229,7 @@ button {
 	width: 16px;
 	height: 16px;
 	transform: rotate(-90deg);
-	background-image: url([[./images/Scrolling/scrolling_12.png]]);
+	background-image: url("[[./images/Scrolling/scrolling_12.png]]");
 	background-position: center;
 }
 
@@ -263,11 +263,11 @@ button {
 }
 
 .panel.rock .progress-bar {
-	border-image-source: url([[./images/Bars/_bar_sheet.png,25,49,22,6]]);
+	border-image-source: url("[[./images/Bars/_bar_sheet.png,25,49,22,6]]");
 }
 
 .panel.rock .progress-bar .fill {
-	border-image-source: url([[./images/Bars/_bar_sheet.png,98,34,20,4]]);
+	border-image-source: url("[[./images/Bars/_bar_sheet.png,98,34,20,4]]");
 }
 
 .panel.rock hr {
@@ -308,11 +308,11 @@ button {
 }
 
 .panel.frame-gold .progress-bar {
-	border-image-source: url([[./images/Bars/_bar_sheet.png,169,305,22,6]]);
+	border-image-source: url("[[./images/Bars/_bar_sheet.png,169,305,22,6]]");
 }
 
 .panel.frame-gold .progress-bar .fill {
-	border-image-source: url([[./images/Bars/_bar_sheet.png,242,322,20,4]]);
+	border-image-source: url("[[./images/Bars/_bar_sheet.png,242,322,20,4]]");
 }
 
 .panel.frame-gold hr {
@@ -329,11 +329,11 @@ button {
 }
 
 .panel.frame-dark .progress-bar {
-	border-image-source: url([[./images/Bars/_bar_sheet.png,169,305,22,6]]);
+	border-image-source: url("[[./images/Bars/_bar_sheet.png,169,305,22,6]]");
 }
 
 .panel.frame-dark .progress-bar .fill {
-	border-image-source: url([[./images/Bars/_bar_sheet.png,242,322,20,4]]);
+	border-image-source: url("[[./images/Bars/_bar_sheet.png,242,322,20,4]]");
 }
 
 .panel.frame-dark hr {
@@ -388,11 +388,11 @@ button {
 }
 
 .panel.tablet .progress-bar {
-	border-image-source: url([[./images/Bars/_bar_sheet.png,25,49,22,6]]);
+	border-image-source: url("[[./images/Bars/_bar_sheet.png,25,49,22,6]]");
 }
 
 .panel.tablet .progress-bar .fill {
-	border-image-source: url([[./images/Bars/_bar_sheet.png,98,34,20,4]]);
+	border-image-source: url("[[./images/Bars/_bar_sheet.png,98,34,20,4]]");
 }
 
 .panel.tablet hr {
@@ -425,100 +425,100 @@ button {
 }
 
 .panel.chest .item-slot {
-	background-image: url([[./images/Windows/_sheet_window_26.png,64,32,16,16]]);
+	background-image: url("[[./images/Windows/_sheet_window_26.png,64,32,16,16]]");
 }
 
 /**
  * Button themes
  */
 .button.blue {
-	border-image-source: url([[./images/Buttons/Blue/buttons_02.png]]);
+	border-image-source: url("[[./images/Buttons/Blue/buttons_02.png]]");
 }
 
 .button.blue:hover {
-	border-image-source: url([[./images/Buttons/Blue/buttons_06.png]]);
+	border-image-source: url("[[./images/Buttons/Blue/buttons_06.png]]");
 }
 
 .button.blue:active {
-	border-image-source: url([[./images/Buttons/Blue/buttons_18.png]]);
+	border-image-source: url("[[./images/Buttons/Blue/buttons_18.png]]");
 }
 
 
 .button.black {
-	border-image-source: url([[./images/Buttons/Black/buttons_02.png]]);
+	border-image-source: url("[[./images/Buttons/Black/buttons_02.png]]");
 }
 
 .button.black:hover {
-	border-image-source: url([[./images/Buttons/Black/buttons_06.png]]);
+	border-image-source: url("[[./images/Buttons/Black/buttons_06.png]]");
 }
 
 .button.black:active {
-	border-image-source: url([[./images/Buttons/Black/buttons_18.png]]);
+	border-image-source: url("[[./images/Buttons/Black/buttons_18.png]]");
 }
 
 
 .button.green {
-	border-image-source: url([[./images/Buttons/Green/buttons_02.png]]);
+	border-image-source: url("[[./images/Buttons/Green/buttons_02.png]]");
 }
 
 .button.green:hover {
-	border-image-source: url([[./images/Buttons/Green/buttons_06.png]]);
+	border-image-source: url("[[./images/Buttons/Green/buttons_06.png]]");
 }
 
 .button.green:active {
-	border-image-source: url([[./images/Buttons/Green/buttons_18.png]]);
+	border-image-source: url("[[./images/Buttons/Green/buttons_18.png]]");
 }
 
 
 .button.pink {
-	border-image-source: url([[./images/Buttons/Pink/buttons_02.png]]);
+	border-image-source: url("[[./images/Buttons/Pink/buttons_02.png]]");
 }
 
 .button.pink:hover {
-	border-image-source: url([[./images/Buttons/Pink/buttons_06.png]]);
+	border-image-source: url("[[./images/Buttons/Pink/buttons_06.png]]");
 }
 
 .button.pink:active {
-	border-image-source: url([[./images/Buttons/Pink/buttons_18.png]]);
+	border-image-source: url("[[./images/Buttons/Pink/buttons_18.png]]");
 }
 
 
 .button.red {
-	border-image-source: url([[./images/Buttons/Red/buttons_02.png]]);
+	border-image-source: url("[[./images/Buttons/Red/buttons_02.png]]");
 }
 
 .button.red:hover {
-	border-image-source: url([[./images/Buttons/Red/buttons_06.png]]);
+	border-image-source: url("[[./images/Buttons/Red/buttons_06.png]]");
 }
 
 .button.red:active {
-	border-image-source: url([[./images/Buttons/Red/buttons_18.png]]);
+	border-image-source: url("[[./images/Buttons/Red/buttons_18.png]]");
 }
 
 
 .button.white {
-	border-image-source: url([[./images/Buttons/White/buttons_02.png]]);
+	border-image-source: url("[[./images/Buttons/White/buttons_02.png]]");
 }
 
 .button.white:hover {
-	border-image-source: url([[./images/Buttons/White/buttons_06.png]]);
+	border-image-source: url("[[./images/Buttons/White/buttons_06.png]]");
 }
 
 .button.white:active {
-	border-image-source: url([[./images/Buttons/White/buttons_18.png]]);
+	border-image-source: url("[[./images/Buttons/White/buttons_18.png]]");
 }
 
 
 .button.yellow {
-	border-image-source: url([[./images/Buttons/Yellow/buttons_02.png]]);
+	border-image-source: url("[[./images/Buttons/Yellow/buttons_02.png]]");
 }
 
 .button.yellow:hover {
-	border-image-source: url([[./images/Buttons/Yellow/buttons_06.png]]);
+	border-image-source: url("[[./images/Buttons/Yellow/buttons_06.png]]");
 }
 
 .button.yellow:active {
-	border-image-source: url([[./images/Buttons/Yellow/buttons_18.png]]);
+	border-image-source: url("[[./images/Buttons/Yellow/buttons_18.png]]");
 }
 
 /**
