@@ -43,8 +43,13 @@ window.addEventListener("load", () => {
 	let passages: Passage[] = [];
 	for (let i =0;i < passagesElems.length;i++) {
 		let passageElem = passagesElems[i];
+		let pid = parseInt(passageElem.getAttribute("pid"));
+		let name = passageElem.getAttribute("name");
+		let tags = passageElem.getAttribute("tags").split(' ');
+		let content = _.unescape(passageElem.innerHTML);
+
 		passages.push(
-			new Passage(parseInt(passageElem.getAttribute("pid")), passageElem.getAttribute("name"), passageElem.getAttribute("tags").split(' '), _.unescape(passageElem.innerHTML))
+			new Passage(pid, name, tags, content)
 		);
     }
 
@@ -75,13 +80,28 @@ window.addEventListener("load", () => {
 	let storyConfig = defaultStoryConfig;
 	if (window.config != undefined) {
 		if (typeof(window.config) != "object") {
-			throw new Error(`window.storyConfig should be an object, but is "${typeof(window.config)}"`);
+			throw new Error(`window.config should be an object, but is "${typeof(window.config)}"`);
 		}
 
 		storyConfig = mergeObject(window.config, defaultStoryConfig);
 	}
 
-	let story = new Story(title, storyConfig, passages, startPassage);
+	// Find the death passage defined by the user or create a new one
+	let deathPassage: Passage = null;
+	if (storyConfig.deathPassage != null) {
+		// Find the one created by the user
+		deathPassage = passages.filter(p => p.name == storyConfig.deathPassage)[0];
+
+		if (deathPassage == null) {
+			throw new Error(`config.deathPassage is set to "${deathPassage}", but no passage with this name found.`);
+		}
+	} else {
+		// Create a new one
+		deathPassage = new Passage(45, "Final passage", ["theme-red", "button-red"], "You are dead.\n\nThanks for playing, you can try again by pressing F5!");
+		passages.push(deathPassage);
+	}
+
+	let story = new Story(title, storyConfig, passages, startPassage, deathPassage);
 
 	story.start();
 

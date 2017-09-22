@@ -10,6 +10,7 @@ let storyConfig: StoryConfig = {
 	items: defaultItems,
 	stats: [],
 	deadMessage: "You are dead",
+	deathPassage: null,
 	enableHealth: true,
 	enableGold: true,
 	enableStats: false,

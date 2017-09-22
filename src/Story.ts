@@ -48,7 +48,8 @@ export default class Story {
 		public name: string,
 		public config: StoryConfig,
 		public passages: Passage[],
-		public startPassage
+		public startPassage: Passage,
+		public deadPassage: Passage
 	) {
 
 	}
