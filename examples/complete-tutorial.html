@@ -1,10 +1,12 @@
 <tw-storydata name="Complete example" startnode="1" creator="Twine" creator-version="2.1.3" ifid="654A88EA-9C60-4E5F-9090-CC011265C10E" format="Adventures" format-version="1.0.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">window.config = {
 	deathPassage: "Death",
 	deadMessage: "You died"
 };
+
 
 </script><tw-passagedata pid="1" name="Choose your name" tags="" position="400,200">&lt;%
 // Hide the character panel (on the left)
@@ -62,7 +64,7 @@ if (character.inventory.hasItem(&quot;sword&quot;)) {
 &lt;%
 // This condition will check if the player
 // has at least 50 coins in its inventory.
-if (character.money &gt;= 50) {
+if (character.gold &gt;= 50) {
 %&gt;
 
 [[[50 gold] Bribe the guards|Bribe]]
