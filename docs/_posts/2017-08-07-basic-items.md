@@ -36,6 +36,24 @@ character.inventory.removeItem("sword");
 %>
 ```
 
+To check if a player has an item:
+
+```
+You approach the main gate of the city
+
+<%
+if (character.inventory.hasItem("sword")) {
+%>
+
+The soldier notices the sword hanging on your side.
+
+%>
+}
+%>
+```
+
+In this example, the second sentence will only be displayed if the player has a `sword` in its inventory.
+
 You can also spawn items in a small chest under the content of the passage. Those items will be draggable by the player to their inventory.
 
 ```javascript
