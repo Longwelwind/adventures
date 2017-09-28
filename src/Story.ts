@@ -166,7 +166,8 @@ export default class Story {
 		let choices: Choice[];
 
 		// If the player is dead, we don't parse links ...
-		if (!this.character.dead) {
+		// if it is not already the death passage.
+		if (!this.character.dead || passage == this.deadPassage) {
 			// Parsing links `[[...]]`
 			// First, we find them
 			choices = [];
