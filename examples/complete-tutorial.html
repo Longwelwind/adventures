@@ -1,0 +1,106 @@
+<tw-storydata name="Complete example" startnode="1" creator="Twine" creator-version="2.1.3" ifid="654A88EA-9C60-4E5F-9090-CC011265C10E" format="Adventures" format-version="1.0.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.config = {
+	deathPassage: "Death",
+	deadMessage: "You died"
+};
+
+</script><tw-passagedata pid="1" name="Choose your name" tags="" position="400,200">&lt;%
+// Hide the character panel (on the left)
+// It will be brought back in the following passage
+story.config.displayCharacterPanel = false;
+%&gt;
+
+Welcome to this small adventure that shows some functionalites of **Adventures**.
+
+Please enter the name of your hero
+
+&lt;p&gt;&lt;input onchange=&quot;character.name = this.value&quot;&gt;&lt;/p&gt;
+
+[[Confirm|Second]]</tw-passagedata><tw-passagedata pid="2" name="Second" tags="" position="547,200">&lt;%
+// Now that the name of the player is set, we can
+// display the character panel.
+story.config.displayCharacterPanel = true;
+%&gt;
+
+Welcome &lt;% character.name %&gt;!
+
+Let&#x27;s discover a bit more about you. When you were young, you were...
+
+[[An orphan, forced to steal in order to survive|Orphan]]
+
+[[The son of a noble, born with a silver spoon in its mouth|Noble]]
+
+[[Son of a soldier, trained by your father to defend the realm|Soldier]]</tw-passagedata><tw-passagedata pid="3" name="Orphan" tags="" position="701,50">You&#x27;re just an orphan.
+
+[[Continue|Intermediate]]</tw-passagedata><tw-passagedata pid="4" name="Noble" tags="" position="702,200">&lt;%
+character.addGold(100);
+%&gt;
+
+You&#x27;re a noble, and as such, you left your house with some gold, to make sure you can buy anythng you need to your journey.
+
+[[Continue|Intermediate]]</tw-passagedata><tw-passagedata pid="5" name="Soldier" tags="" position="700,349">&lt;% character.inventory.addItem(&quot;sword&quot;); %&gt;
+
+You&#x27;re a soldier.
+
+Since your father trained you when you were a child, you carry a sword with you at all times.
+
+[[Continue|Intermediate]]</tw-passagedata><tw-passagedata pid="6" name="Intermediate" tags="" position="850,200">You arrive at the main gate of the city. Two guards of the city refuses to let you enter. You...
+
+&lt;%
+// This condition will check wether the player
+// has a sword in its inventory. If yes,
+// it will display an additional choice.
+if (character.inventory.hasItem(&quot;sword&quot;)) {
+%&gt;
+
+[[[Sword] Attack the guards|Attack]]
+
+&lt;% } %&gt;
+
+&lt;%
+// This condition will check if the player
+// has at least 50 coins in its inventory.
+if (character.money &gt;= 50) {
+%&gt;
+
+[[[50 gold] Bribe the guards|Bribe]]
+
+&lt;% } %&gt;
+
+[[Turn back, you didn&#x27;t even want to go in anyway|Exit]]</tw-passagedata><tw-passagedata pid="7" name="Attack" tags="button-red" position="1001,350">You slew the guards pretty easily. You proceed into the city.
+
+As you walk into the city, you feel like you are watched...
+
+[[Continue|End]]</tw-passagedata><tw-passagedata pid="8" name="Bribe" tags="button-green" position="1000,200">&lt;%
+// We remove the gold
+character.removeGold(50);
+%&gt;
+
+You give the gold to the guard and proceed into the city.
+
+You can&#x27;t help but feel like you&#x27;re watched...
+
+[[Continue|End]]
+
+</tw-passagedata><tw-passagedata pid="9" name="Exit" tags="" position="998,51">You turn back.
+
+You have a bad feeling, as if something terrible was about to happen.
+
+[[Continue|End]]</tw-passagedata><tw-passagedata pid="10" name="End" tags="" position="1151,201">&lt;%
+// We make sure we kill the player
+character.damage(character.health);
+%&gt;
+
+You feel a small pinch on you&#x27;re neck. You realize it was a poisoned dart.</tw-passagedata><tw-passagedata pid="11" name="Death" tags="theme-red" position="401,350">&lt;%
+// This passage will be displayed whenever the health
+// of the player reaches zero. To tell the game to
+// show this passage, we specify the name of it (&quot;Death&quot;)
+// in the setting 
+%&gt;
+
+Thanks for playing this small tutorial. This passage has a different theme thanks to the tag added (&quot;theme-red&quot;).
+
+This passage doesn&#x27;t have any link to other passages, but it is still a passage like others, so you can put whatever you want.</tw-passagedata></tw-storydata>
+
