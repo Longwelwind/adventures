@@ -34,7 +34,6 @@ export default class Story {
 	@observable lootableInventory: Inventory;
 	@observable error: string = null;
 	@observable shop: Shop;
-	@observable finished: boolean = false;
 
 	get items(): Item[] {
 		return this.config.items;
@@ -199,11 +198,10 @@ export default class Story {
 				}
 			}
 		} else {
-			// ...and we add a single choice that will lead to the passage chosen by the writer
-			// TODO: Find a way to let the writer customize the death passage
+			// ...and we add a single choice that will lead to `deathPassage`
 			choices = [
 				new Choice(
-					new Passage(45, "Final passage", ["theme-red", "button-red"], "You are dead.\n\nThanks for playing, you can try again by pressing F5!"),
+					this.deadPassage,
 					this.config.deadMessage
 				)
 			];

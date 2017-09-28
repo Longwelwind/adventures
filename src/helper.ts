@@ -21,11 +21,13 @@ export function mergeObject<E extends object>(patch: Partial<E>, template: E): E
 			let patchValue = patch[propertyKey];
 
 			// We check if the type matches
-			if (typeof(template[propertyKey]) != typeof(patchValue)) {
+			if (template[propertyKey] != null && patchValue != null && typeof(template[propertyKey]) != typeof(patchValue)) {
 				throw new Error(`Wrong type for "${propertyKey}", should be "${typeof(templateValue)}", but is "${typeof(patchValue)}"`);
 			}
 
-			if (typeof(templateValue) == "object" && !Array.isArray(templateValue)) {
+			if (templateValue == null) {
+				newObject[propertyKey] = patchValue;
+			} else if (typeof(templateValue) == "object" && !Array.isArray(templateValue)) {
 				newObject[propertyKey] = mergeObject(patchValue, templateValue);
 			} else {
 				// TODO: handle list in a better way

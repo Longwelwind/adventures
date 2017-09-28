@@ -60,21 +60,20 @@ export default class Interface extends React.Component<InterfaceProps, null> {
 								<CharacterComponent story={this.story} />
 							</CSSTransition>
 					</div>
-					{!this.story.finished ? (
-						this.story.error != null ? (
-							<div className="elem" style={{flexGrow: 1}}>
-								<div className="row">
-									<div className="elem" style={{flexGrow: 1}}>
-										<div className="panel red">
-											<div className="panel-content">
-												Error: {this.story.error}
-											</div>
+					{this.story.error != null ? (
+						<div className="elem" style={{flexGrow: 1}}>
+							<div className="row">
+								<div className="elem" style={{flexGrow: 1}}>
+									<div className="panel red">
+										<div className="panel-content">
+											Error: {this.story.error}
 										</div>
 									</div>
 								</div>
 							</div>
-						) : (
-							<div className="elem" style={{flexGrow: 1}}>
+						</div>
+					) : (
+						<div className="elem" style={{flexGrow: 1}}>
 							<div className="row">
 								<div className="elem" style={{flexGrow: 1}}>
 									<CSSTransition
@@ -224,101 +223,36 @@ export default class Interface extends React.Component<InterfaceProps, null> {
 									</div>
 								</div>
 							)}
-							{!this.character.dead ? (
-								<div>
-									{this.story.choices.map((c, i) => (
-										<div className="row" key={i}>
-											<div className="elem" style={{flexGrow: 1}}>
-												<CSSTransition
-													classNames="fade"
-													timeout={{
-														enter: this.CHOICE_FADE_IN_DELAY + this.CHOICE_FADE_IN_DELAY_PER * (this.story.choices.length + 1),
-														exit: this.CHOICE_CHOSEN_FADE_OUT_DELAY + this.CHOICE_FADE_IN_DURATION
-													}}
-													appear={true}
-													in={!this.isTransitioning()}
-												>
-													<button
-														className={"button " + c.getTheme(this.story.config.buttonTheme)}
-														dangerouslySetInnerHTML={{__html: c.text}}
-														onClick={() => this.onChoice(c)}
-														style={{
-															width: "100%",
-															transitionDelay: !this.isTransitioning()
-																? (this.CHOICE_FADE_IN_DELAY + ((i + 1) * this.CHOICE_FADE_IN_DELAY_PER)) + "ms"
-																: this.choiceChosen == c ? this.CHOICE_CHOSEN_FADE_OUT_DELAY + "ms" : "0ms",
-															transitionDuration: this.CHOICE_FADE_IN_DURATION + "ms"
-														}}
-													>
-													</button>
-												</CSSTransition>
-											</div>
-										</div>
-									))}
-								</div>
-							) : (
-								<div className="row">
-									<div className="elem" style={{flexGrow: 1}}>
-										<CSSTransition
-											classNames="fade"
-											timeout={{
-												enter: this.CHOICE_FADE_IN_DELAY + this.CHOICE_FADE_IN_DELAY_PER * (this.story.choices.length + 1),
-												exit: this.CHOICE_CHOSEN_FADE_OUT_DELAY + this.CHOICE_FADE_IN_DURATION
-											}}
-											appear={true}
-											in={!this.isTransitioning()}
-										>
-											<button
-												className={"button red"}
-												onClick={() => this.onDeadChoiceClick()}
-												style={{
-													width: "100%",
-													transitionDelay: !this.isTransitioning()
-														? (this.CHOICE_FADE_IN_DELAY + this.CHOICE_FADE_IN_DELAY_PER) + "ms"
-														: "0ms",
-													transitionDuration: this.CHOICE_FADE_IN_DURATION + "ms"
+							<div>
+								{this.story.choices.map((c, i) => (
+									<div className="row" key={i}>
+										<div className="elem" style={{flexGrow: 1}}>
+											<CSSTransition
+												classNames="fade"
+												timeout={{
+													enter: this.CHOICE_FADE_IN_DELAY + this.CHOICE_FADE_IN_DELAY_PER * (this.story.choices.length + 1),
+													exit: this.CHOICE_CHOSEN_FADE_OUT_DELAY + this.CHOICE_FADE_IN_DURATION
 												}}
+												appear={true}
+												in={!this.isTransitioning()}
 											>
-												You are dead
-											</button>
-										</CSSTransition>
-									</div>
-								</div>
-							)}
-						</div>
-						)
-					) : (
-						<div className="elem" style={{flexGrow: 1}}>
-							<div className="row">
-								<div className="elem" style={{flexGrow: 1}}>
-									<CSSTransition
-										classNames="fade"
-										timeout={{
-											enter: this.PASSAGE_FADE_IN_DURATION,
-											exit: this.CHOICE_CHOSEN_FADE_OUT_DELAY + this.PASSAGE_FADE_IN_DURATION
-										}}
-										appear={true}
-										in={true}
-									>
-										<div
-											className={"panel red"}
-											style={{
-												transitionDuration: this.PASSAGE_FADE_IN_DURATION + "ms"
-											}}
-											key={this.story.history.length}
-										>
-											<div className="panel-content">
-												<div className="row">
-													<div className="elem"
-														style={{flexGrow: 1}}
-													>
-														Too bad, you are dead !
-													</div>
-												</div>
-											</div>
+												<button
+													className={"button " + c.getTheme(this.story.config.buttonTheme)}
+													dangerouslySetInnerHTML={{__html: c.text}}
+													onClick={() => this.onChoice(c)}
+													style={{
+														width: "100%",
+														transitionDelay: !this.isTransitioning()
+															? (this.CHOICE_FADE_IN_DELAY + ((i + 1) * this.CHOICE_FADE_IN_DELAY_PER)) + "ms"
+															: this.choiceChosen == c ? this.CHOICE_CHOSEN_FADE_OUT_DELAY + "ms" : "0ms",
+														transitionDuration: this.CHOICE_FADE_IN_DURATION + "ms"
+													}}
+												>
+												</button>
+											</CSSTransition>
 										</div>
-									</CSSTransition>
-								</div>
+									</div>
+								))}
 							</div>
 						</div>
 					)}
@@ -338,15 +272,6 @@ export default class Interface extends React.Component<InterfaceProps, null> {
 			this.choiceChosen = null;
 			this.story.choose(choice);
 		}, this.CHOICE_CHOSEN_FADE_OUT_DELAY + this.PASSAGE_FADE_IN_DURATION);
-	}
-
-	onDeadChoiceClick() {
-		this.deadChoiceChosen = true;
-
-		setTimeout(() => {
-			this.story.finished = true;
-			this.deadChoiceChosen = false;
-		}, this.PASSAGE_FADE_IN_DURATION);
 	}
 
 	isTransitioning(): boolean {
