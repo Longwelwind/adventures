@@ -7,7 +7,7 @@ export default class Inventory {
 	@observable items: Item[];
 
 	constructor(private story: Story, public readonly length: number) {
-		this.items = _.times<Item>(this.length, i => null);
+		this.items = observable.shallowArray(_.times<Item>(this.length, i => null));
 	}
 
 	addItem(itemTag: string): boolean {
@@ -26,6 +26,17 @@ export default class Inventory {
 		this.items[i] = item;
 
 		return true;
+	}
+
+	hasItem(itemTag: string): boolean {
+		let item = this.story.getItem(itemTag);
+
+		return this.has(item);
+	}
+
+	has(item: Item): boolean {
+		let i = this.items.indexOf(item);
+		return i > -1;
 	}
 
 	remove(i: number): boolean {
