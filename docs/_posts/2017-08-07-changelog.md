@@ -5,14 +5,19 @@ category: others
 date: 2017-08-07 21:06:03
 ---
 
+#### 1.1.0
+
+* Gives the possibility to specify a death passage that will replace the default passage when the player is dead
+* Fixes various bugs
+
 ##### 1.0.2
 
-* Fixed a bug affecting the dragging of items.
-* Add a proper final message for the death screen.
+* Fixes a bug affecting the dragging of items.
+* Adds a proper final message for the death screen.
 
 ##### 1.0.1
 
-* Changed the version to `1.0.1` since Twine doesn't handle having 2 story formats with the same semver.
+* Changes the version to `1.0.1` since Twine doesn't handle having 2 story formats with the same semver.
 
 #### 1.0.0
 
