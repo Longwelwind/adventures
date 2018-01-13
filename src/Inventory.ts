@@ -39,7 +39,7 @@ export default class Inventory {
 		return i > -1;
 	}
 
-	remove(i: number): boolean {
+	removeIndex(i: number): boolean {
 		if (i >= this.length) {
 			return false;
 		}
@@ -49,12 +49,18 @@ export default class Inventory {
 		return true;
 	}
 
-	removeItem(item: Item): boolean {
+	remove(item: Item): boolean {
 		let i = this.items.indexOf(item);
 		if (i == -1) {
 			return false;
 		}
 
-		return this.remove(i);
+		return this.removeIndex(i);
+	}
+	
+	removeItem(itemTag: string): boolean {
+		let item = this.story.getItem(itemTag);
+
+		return this.remove(item);
 	}
 }

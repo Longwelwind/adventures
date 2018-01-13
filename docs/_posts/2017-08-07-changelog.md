@@ -5,6 +5,10 @@ category: others
 date: 2017-08-07 21:06:03
 ---
 
+##### 1.1.1
+
+* Fixes `removeItem`
+
 #### 1.1.0
 
 * Gives the possibility to specify a death passage that will replace the default passage when the player is dead
